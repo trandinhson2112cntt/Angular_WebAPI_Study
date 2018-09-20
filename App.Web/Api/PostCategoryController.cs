@@ -10,8 +10,9 @@ namespace App.Web.Api
     [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
-        IPostCategoryService _postCategoryService;
-        public PostCategoryController(IErrorService errorService,IPostCategoryService postCategoryService) : base(errorService)
+        private IPostCategoryService _postCategoryService;
+
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
@@ -21,22 +22,13 @@ namespace App.Web.Api
         {
             return CreateHttpResponse(requestMessage, () =>
             {
-                HttpResponseMessage responseMessage = null;
-                if (ModelState.IsValid)
-                {
-                    responseMessage = requestMessage.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategoryService.GetAll();
-
-                    responseMessage = requestMessage.CreateResponse(HttpStatusCode.OK,listCategory);
-                }
+                var listCategory = _postCategoryService.GetAll();
+                HttpResponseMessage responseMessage = requestMessage.CreateResponse(HttpStatusCode.OK, listCategory);
                 return responseMessage;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage requestMessage,PostCategory postCategory)
+        public HttpResponseMessage Post(HttpRequestMessage requestMessage, PostCategory postCategory)
         {
             return CreateHttpResponse(requestMessage, () =>
             {
