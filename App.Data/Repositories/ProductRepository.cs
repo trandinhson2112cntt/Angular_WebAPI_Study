@@ -3,7 +3,7 @@ using App.Model.Models;
 
 namespace App.Data.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
     }
 
