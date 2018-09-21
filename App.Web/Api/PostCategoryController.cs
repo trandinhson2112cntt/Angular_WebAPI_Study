@@ -1,6 +1,10 @@
 ﻿using App.Model.Models;
 using App.Service;
 using App.Web.Infrastructure.Core;
+using App.Web.Infrastructure.Extensions;
+using App.Web.Models;
+using AutoMapper;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Mvc;
@@ -23,12 +27,16 @@ namespace App.Web.Api
             return CreateHttpResponse(requestMessage, () =>
             {
                 var listCategory = _postCategoryService.GetAll();
+
+                var listPostCategoryViewModel = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
+
                 HttpResponseMessage responseMessage = requestMessage.CreateResponse(HttpStatusCode.OK, listCategory);
                 return responseMessage;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage requestMessage, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage requestMessage, PostCategoryViewModel postCategoryVM)
         {
             return CreateHttpResponse(requestMessage, () =>
             {
@@ -39,7 +47,9 @@ namespace App.Web.Api
                 }
                 else
                 {
-                    var category = _postCategoryService.Add(postCategory);
+                    PostCategory newPostCategory = new PostCategory();
+                    newPostCategory.UpdatePostCategory(postCategoryVM);
+                    var category = _postCategoryService.Add(newPostCategory);
                     _postCategoryService.Save();
 
                     responseMessage = requestMessage.CreateResponse(HttpStatusCode.Created, category);
@@ -48,7 +58,8 @@ namespace App.Web.Api
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage requestMessage, PostCategory postCategory)
+        [Route("update")]
+        public HttpResponseMessage Put(HttpRequestMessage requestMessage, PostCategoryViewModel postCategoryVM)
         {
             return CreateHttpResponse(requestMessage, () =>
             {
@@ -59,7 +70,9 @@ namespace App.Web.Api
                 }
                 else
                 {
-                    _postCategoryService.Update(postCategory);
+                    var postCategoryDB = _postCategoryService.GetById(postCategoryVM.ID);
+                    postCategoryDB.UpdatePostCategory(postCategoryVM);
+                    _postCategoryService.Update(postCategoryDB);
                     _postCategoryService.Save();
 
                     responseMessage = requestMessage.CreateResponse(HttpStatusCode.OK);

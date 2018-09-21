@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201809201531303_AddErrorTable.Designer.cs">
       <DependentUpon>201809201531303_AddErrorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809210719353_AddForeignKeyPostTags.cs" />
+    <Compile Include="Migrations\201809210719353_AddForeignKeyPostTags.Designer.cs">
+      <DependentUpon>201809210719353_AddForeignKeyPostTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -103,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809201531303_AddErrorTable.resx">
       <DependentUpon>201809201531303_AddErrorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809210719353_AddForeignKeyPostTags.resx">
+      <DependentUpon>201809210719353_AddForeignKeyPostTags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
