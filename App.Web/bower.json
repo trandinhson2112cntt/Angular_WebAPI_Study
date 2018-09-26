@@ -2,6 +2,6 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "angular": "*"
+    "angular-ui-router": ""
   }
 }
