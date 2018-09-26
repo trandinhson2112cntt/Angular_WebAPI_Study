@@ -1,0 +1,53 @@
+﻿<div class="dark-font">
+    <ol class="breadcrumb secondary-color">
+        <li class="breadcrumb-item"><a class="white-text" href="#">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Danh mục sản phẩm</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Danh mục sản phẩm</h4>
+                <p class="card-category">Quản lý các danh mục sản phẩm trên website</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <a href="" class="btn btn-outline-success pull-left">Thêm mới</a>
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th style="width:5%">
+                                    ID
+                                </th>
+                                <th style="width:30%">
+                                    Tên danh mục
+                                </th>
+                                <th style="width:20%">
+                                    Ngày tạo
+                                <th style="width:15%">
+                                    Trạng thái
+                                </th>
+                                <th style="width:20%">
+                                    Chức năng
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in productCategories">
+                                <td>{{item.ID}}</td>
+                                <td>{{item.Name}}</td>
+                                <td>{{item.CreatedDate | date:'dd/mm/yyyy hh:mm:ss'}}</td>
+                                <td align="center"><span ng-class="{'btn btn-warning btn-sm':item.Status==false,'btn btn-success btn-sm':item.Status==true}">{{item.Status | statusFilter}}</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

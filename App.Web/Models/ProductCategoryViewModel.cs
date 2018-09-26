@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace App.Web.Models
 {
-    public class PostCategoryViewModel
+    public class ProductCategoryViewModel
     {
         public int ID { set; get; }
 
@@ -34,6 +34,6 @@ namespace App.Web.Models
         public string MetaDescription { get; set; }
 
         public bool Status { get; set; }
-        public virtual IEnumerable<PostViewModel> Posts { set; get; }
+        public virtual IEnumerable<ProductViewModel> Products { set; get; }
     }
 }

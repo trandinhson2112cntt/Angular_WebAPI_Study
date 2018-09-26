@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using App.Data.Infrastructure;
+﻿using App.Data.Infrastructure;
 using App.Data.Repositories;
 using App.Model.Models;
+using System.Collections.Generic;
 
 namespace App.Service
 {
@@ -41,7 +40,7 @@ namespace App.Service
 
         public PostCategory Delete(int id)
         {
-           return _postCategoryRepository.Delete(id);
+            return _postCategoryRepository.Delete(id);
         }
 
         public IEnumerable<PostCategory> GetAll()

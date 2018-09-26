@@ -1,10 +1,10 @@
-namespace App.Data.Migrations
+﻿namespace App.Data.Migrations
 {
     using App.Model.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
-    using System.Data.Entity;
+    using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -41,19 +41,37 @@ namespace App.Data.Migrations
             var adminUser = manager.FindByEmail("trandinhson2112cntt@gmail.com");
 
             manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            CreateProductCategorySample(context);
+        }
 
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        private void CreateProductCategorySample(AppDbContext context)
+        {
+            if (context.ProductCategories.Count() == 0)
+            {
+                List<ProductCategory> listProductCategories = new List<ProductCategory>()
+            {
+                new ProductCategory()
+                {
+                    Name = "Điện lạnh",
+                    Alias = "dien-lanh",
+                    Status = true
+                },
+                new ProductCategory()
+                {
+                    Name = "Viễn thông",
+                    Alias = "vien-thong",
+                    Status = true
+                },
+                new ProductCategory()
+                {
+                    Name = "Mỹ phẩm",
+                    Alias = "my-pham",
+                    Status = true
+                }
+            };
+                context.ProductCategories.AddRange(listProductCategories);
+                context.SaveChanges();
+            }
         }
     }
 }

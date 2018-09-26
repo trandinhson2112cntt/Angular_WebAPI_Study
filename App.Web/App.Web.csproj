@@ -207,6 +207,7 @@
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
+    <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -224,6 +225,9 @@
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\ProductCategoryViewModel.cs" />
+    <Compile Include="Models\ProductTagViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -237,6 +241,10 @@
     <Content Include="app\components\products\productListView.html" />
     <Content Include="app\components\products\productEditView.html" />
     <Content Include="app\components\products\productAddView.html" />
+    <Content Include="app\components\product_categories\productCategoryListController.js" />
+    <Content Include="app\components\product_categories\productCategoryListView.html" />
+    <Content Include="app\shared\filter\statusFilter.js" />
+    <Content Include="app\shared\services\apiService.js" />
     <Content Include="Assets\admin\css\material-dashboard.css" />
     <Content Include="Assets\admin\css\material-dashboard.min.css" />
     <Content Include="Assets\admin\img\apple-icon.png" />
@@ -279,12 +287,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\components\orders\" />
-    <Folder Include="app\components\product_categories\" />
     <Folder Include="app\components\roles\" />
     <Folder Include="app\components\users\" />
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />
-    <Folder Include="app\shared\services\" />
     <Folder Include="Assets\admin\libs\" />
     <Folder Include="Assets\client\" />
     <Folder Include="Views\Home\" />
@@ -463,6 +469,7 @@
     <Content Include="Assets\admin\scss\material-dashboard\_type.scss" />
     <Content Include="Assets\admin\scss\material-dashboard\_variables.scss" />
     <Content Include="app\shared\modules\app.common.js" />
+    <Content Include="app\components\product_categories\productCategories.module.js" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
