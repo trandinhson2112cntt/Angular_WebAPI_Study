@@ -12,6 +12,14 @@
                 <p class="card-category">Quản lý các danh mục sản phẩm trên website</p>
             </div>
             <div class="card-body">
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nhập từ khóa" aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="keyword">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm" type="button" ng-click="search()">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <a href="" class="btn btn-outline-success pull-left">Thêm mới</a>
                     <table class="table">
@@ -45,6 +53,13 @@
                                 </td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    Tổng số bản ghi: {{totalCount}}
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProductCategories(page)"></pager-directive>

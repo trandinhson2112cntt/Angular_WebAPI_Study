@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="~/Assets/admin/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+    <!--Toastr CSS-->
+    <link href="~/Assets/admin/js/toastr/toastr.css" rel="stylesheet" />
 </head>
-<body class="" ng-app="app">
+<body class="" ng-app="app" style="overflow: hidden;">
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="white">
             <!--
@@ -85,17 +87,12 @@
                 </div>
             </div>
 
-            <footer class="footer">
+            <footer class="page-footer" style="position: fixed;">
                 <div class="container-fluid">
-                    <nav class="float-left">
-                        <ul>
-                            <li>
-                                <a href="https://www.creative-tim.com">
-                                    T.Dinh Son
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    By
+                    <b>
+                        T.Dinh Son &nbsp;
+                    </b>
                     <div class="copyright float-right">
                         &copy;
                         <script>
@@ -120,13 +117,15 @@
     <script src="~/Assets/admin/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/Assets/admin/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
-
+    <!--Toastr JS-->
+    <script src="~/Assets/admin/js/toastr/toastr.min.js"></script>
     <script src="~/Assets/admin/js/angular/angular.js"></script>
-    <script src="~/Assets/admin/js/angular/angular-ui-router.js"></script>
-    <!--Active-->
-    <!--Angular JS Code-->>
+    <script src="~/Assets/admin/js/angular/angular-ui-router.min.js"></script>
 
+    <!--Active-->
+    <!--Angular JS Code-->
     <script src="~/app/shared/modules/app.common.js"></script>
+    
     <!--Modules-->
     <script src="~/app/components/products/products.module.js"></script>
     <script src="~/app/components/product_categories/productCategories.module.js"></script>
@@ -138,6 +137,8 @@
     <script src="~/app/shared/services/apiService.js"></script>
     <!--Paging-->
     <script src="~/app/shared/directives/pagerDirective.js"></script>
+    <!--Notification-->
+    <script src="~/app/shared/services/notificationService.js"></script>
     <script src="~/app/components/product_categories/productCategoryListController.js"></script>
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productListController.js"></script>
