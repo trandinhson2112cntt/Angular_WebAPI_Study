@@ -1,0 +1,106 @@
+﻿<div class="dark-font">
+    <ol class="breadcrumb secondary-color">
+        <li class="breadcrumb-item"><a class="white-text" href="/"><i class="fa fa-fa-dashboard"></i>Trang chủ</a></li>
+        <li class="breadcrumb-item "><a class="white-text" ui-sref="product_categories">Danh mục sản phẩm</a></li>
+        <li class="breadcrumb-item active">Cập nhập danh mục</li>
+
+    </ol>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="height:400px">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">
+                            Cập nhập
+                        </h4>
+                        <p class="card-category">
+                            Danh mục {{productCategory.Name}}
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" novalidate name="frmProductCategory" role="form" ng-submit="UpdateProductCategory()">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Tên danh mục</label>
+                                    <input type="text" class="form-control" ng-change="GetSeoTitle()" ng-model="productCategory.Name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Tiêu đề SEO</label>
+                                    <input type="text" class="form-control" ng-model="productCategory.Alias" name="alias" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Mô tả ngắn</label>
+                                    <input type="text" class="form-control" ng-model="productCategory.Description" name="description" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Danh mục cha</label>
+                                    <select class="form-control" name="parenID" ng-model="productCategory.ParentID" ng-options="option.ID as option.Name for option in parentCategories">
+                                        <option value="">--Danh mục gốc--</option>
+                                    </select>
+                                    <input type="hidden" name="parenID" ng-model="productCategory.ParentID" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Thứ tự</label>
+                                    <input type="number" class="form-control" ng-model="productCategory.DisplayOrder" name="displayOrder">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Hình ảnh</label>
+                                    <input type="text" class="form-control" ng-model="productCategory.Image" name="image">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Meta keyword</label>
+                                    <input type="text" class="form-control" ng-model="productCategory.MetaKeyword" name="metaKeyword">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message-text" class="bmd-label-floating">Meta description</label>
+                                    <textarea type="text" class="form-control" ng-model="productCategory.MetaDescription" name="metaDescription">
+
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="productCategory.Status" ng-checked="productCategory.Status"> Kích hoạt
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="homeFlag" ng-model="productCategory.HomeFlag" ng-checked="productCategory.HomeFlag"> Hiển thị trang chủ
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-12">
+                                    <a ui-sref="product_categories" class="btn btn-outline-primary pull-left">
+                                        Quay về danh sách
+                                    </a>
+                                    <button type="submit" value="Lưu lại" class="btn btn-outline-success pull-right">
+                                        Lưu lại
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

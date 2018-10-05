@@ -4,13 +4,22 @@
     function apiService($http) {
         return {
             get: get,
-            post:post
+            post: post,
+            put: put,
         };
         function post(url,data,success,failure) {
             $http
                 .post(url, data)
                 .then(function (result) {
-
+                    success(result);
+                }, function (error) {
+                    failure(error);
+                });
+        }
+        function put(url, data, success, failure) {
+            $http
+                .put(url, data)
+                .then(function (result) {
                     success(result);
                 }, function (error) {
                     failure(error);

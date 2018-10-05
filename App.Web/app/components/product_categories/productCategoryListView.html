@@ -49,7 +49,7 @@
                                 <td>{{item.CreatedDate | date:'dd/mm/yyyy hh:mm:ss'}}</td>
                                 <td align="center"><span ng-class="{'btn btn-warning btn-sm':item.Status==false,'btn btn-success btn-sm':item.Status==true}">{{item.Status | statusFilter}}</span></td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-sm btn-primary" ui-sref="edit_product_categories({id:item.ID})"><i class="fa fa-pencil"></i></button>
                                     <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
