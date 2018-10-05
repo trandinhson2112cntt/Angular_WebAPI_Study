@@ -24,19 +24,21 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="message-text" class="bmd-label-floating">Tên danh mục</label>
-                                    <input type="text" class="form-control" ng-model="productCategory.Name" name="manufactName" required>
+                                    <input type="text" class="form-control" ng-model="productCategory.Name" name="name" required>
+                                    <span ng-show="frmProductCategory.name.$invalid" class="text-danger">Phải nhập tên danh mục</span>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="message-text" class="bmd-label-floating">Tiêu đề SEO</label>
                                     <input type="text" class="form-control" ng-model="productCategory.Alias" name="alias" required>
+                                    <span ng-show="frmProductCategory.alias.$invalid" class="text-danger">Phải nhập tiêu đề Seo</span>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="message-text" class="bmd-label-floating">Mô tả ngắn</label>
-                                    <input type="text" class="form-control" ng-model="productCategory.Description" name="description" required>
+                                    <input type="text" class="form-control" ng-model="productCategory.Description" name="description" >
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -51,7 +53,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="message-text" class="bmd-label-floating">Thứ tự</label>
-                                    <input type="number" class="form-control" ng-model="productCategory.DisplayOrder" name="displayOrder">
+                                    <input type="number" class="form-control" ng-model="productCategory.DisplayOrder" required name="displayOrder">
+                                    <span ng-show="frmProductCategory.displayOrder.$invalid" class="text-danger">Phải nhập thứ tự</span>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -92,7 +95,7 @@
                                     <a ui-sref="product_categories" class="btn btn-outline-primary pull-left">
                                         Quay về danh sách
                                     </a>
-                                    <button type="submit" value="Lưu lại" class="btn btn-outline-success pull-right">
+                                    <button type="submit" ng-disabled="frmProductCategory.$invalid" value="Lưu lại" class="btn btn-outline-success pull-right">
                                         Lưu lại
                                     </button>
                                 </div>
