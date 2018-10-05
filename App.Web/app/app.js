@@ -1,8 +1,7 @@
 ﻿(function () {
     angular.module('app', ['app.products',
         'app.product_categories',
-        'app.common',
-        'toastr']).config(config);
+        'app.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {

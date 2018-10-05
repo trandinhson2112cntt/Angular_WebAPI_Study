@@ -242,13 +242,14 @@
     <Content Include="app\components\products\productListView.html" />
     <Content Include="app\components\products\productEditView.html" />
     <Content Include="app\components\products\productAddView.html" />
+    <Content Include="app\components\product_categories\productCategoryAddController.js" />
+    <Content Include="app\components\product_categories\productCategoryAddView.html" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filter\statusFilter.js" />
     <Content Include="app\shared\services\apiService.js" />
-    <Content Include="app\shared\services\notificationService.js" />
     <Content Include="Assets\admin\css\material-dashboard.css" />
     <Content Include="Assets\admin\css\material-dashboard.min.css" />
     <Content Include="Assets\admin\img\apple-icon.png" />
@@ -478,6 +479,7 @@
     <Content Include="app\components\product_categories\productCategories.module.js" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.Common\App.Common.csproj">
@@ -515,7 +517,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61291</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61291/</IISUrl>
+          <IISUrl>http://localhost:61291</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:61291/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
