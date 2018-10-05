@@ -6,7 +6,17 @@
             get: get,
             post: post,
             put: put,
+            del: del
         };
+        function del(url, data, success, failure) {
+            $http
+                .delete(url, data)
+                .then(function (result) {
+                    success(result);
+                }, function (error) {
+                    failure(error);
+                });
+        }
         function post(url,data,success,failure) {
             $http
                 .post(url, data)

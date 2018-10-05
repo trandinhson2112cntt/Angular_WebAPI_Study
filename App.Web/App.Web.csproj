@@ -270,6 +270,8 @@
     <Content Include="Assets\admin\img\sidebar-4.jpg" />
     <Content Include="Assets\admin\js\angular\angular-ui-router.min.js" />
     <Content Include="Assets\admin\js\angular\angular.js" />
+    <Content Include="Assets\admin\js\bootbox\bootbox.min.js" />
+    <Content Include="Assets\admin\js\bootbox\ngBootBox.js" />
     <Content Include="Assets\admin\js\core\bootstrap-material-design.min.js" />
     <Content Include="Assets\admin\js\core\jquery.min.js" />
     <Content Include="Assets\admin\js\core\popper.min.js" />

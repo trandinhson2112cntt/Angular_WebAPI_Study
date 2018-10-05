@@ -11,11 +11,39 @@
         $scope.keyword = '';
 
         $scope.search = search;
+
+        $scope.deleteProductCategory = deleteProductCategory;
+        function deleteProductCategory(id) {
+            bootbox.confirm({
+                title:' ',
+                message: 'Bạn có chắc muốn xóa?',
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancel'
+                    },
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Confirm',
+
+                    }
+                },
+                callback: function (result) {
+                    if (result == true) {
+                        var config = { params: { id: id } };
+                        apiService.del('api/productcategory/delete', config, function () {
+                            search();
+                        }, function () {
+                            console.log('Xóa không thành công!!!');
+                        });
+                    }
+                }
+            });
+        }
+
         function search() {
             getProductCategories();
         }
 
-        function getProductCategories( page) {
+        function getProductCategories(page) {
             page = page || 0;
             var config = {
                 params: {
