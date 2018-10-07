@@ -22,10 +22,15 @@
                 </div>
                 <div class="table-responsive">
                     <a ui-sref="add_product_categories" class="btn btn-outline-success pull-left">Thêm mới</a>
-
+                    <button class="btn btn-outline-danger" id="btnDeleteMulti" ng-click="deleteMultiple()" disabled>Xóa</button>
                     <table class="table">
                         <thead class=" text-primary">
                             <tr>
+                                <th>
+                                    <label>
+                                        <input name="all" type="checkbox"  ng-click="selectAll()"/>
+                                    </label>
+                                </th>
                                 <th style="width:5%">
                                     ID
                                 </th>
@@ -44,6 +49,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="item in productCategories">
+                                <td><input type="checkbox" ng-model="item.checked" name="all"/></td>
                                 <td>{{item.ID}}</td>
                                 <td>{{item.Name}}</td>
                                 <td>{{item.CreatedDate | date:'dd/mm/yyyy hh:mm:ss'}}</td>
